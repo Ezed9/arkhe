@@ -22,7 +22,7 @@ function TerminalField({ field }: { field: typeof fields[0] }) {
     <motion.div
       initial={{ opacity: 0, x: -20 }}
       whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true, amount: 0.5 }}
+      viewport={{ once: true, amount: 0.1, margin: "0px 0px -60px 0px" }}
       transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1], delay: field.delay }}
       className="flex items-start gap-5 border-b py-6"
       style={{ borderColor: focused ? 'rgba(255,255,255,0.1)' : '#1A1A1A', transition: 'border-color 0.2s ease' }}
@@ -98,7 +98,7 @@ export function Contact({ contactRef }: Props) {
 
       <motion.h2
         initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.1, margin: "0px 0px -60px 0px" }}
         transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
         className="font-sans font-black leading-none mb-5"
         style={{ fontSize: 'clamp(2.8rem, 7vw, 8rem)', letterSpacing: '-0.04em' }}
@@ -108,7 +108,7 @@ export function Contact({ contactRef }: Props) {
 
       <motion.p
         initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.1, margin: "0px 0px -60px 0px" }}
         transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
         className="font-mono mb-20 max-w-lg"
         style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.38)', lineHeight: 1.9, letterSpacing: '0.04em' }}
@@ -151,7 +151,7 @@ export function Contact({ contactRef }: Props) {
 
           <motion.div
             initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
+            viewport={{ once: true, amount: 0.1, margin: "0px 0px -60px 0px" }}
             transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
             className="pt-12 flex items-center gap-6"
           >

@@ -37,7 +37,7 @@ export function Process() {
         <motion.h2
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.1, margin: "0px 0px -60px 0px" }}
           transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
           className="font-sans font-black leading-none"
           style={{ fontSize: 'clamp(2.8rem, 6.5vw, 7rem)', letterSpacing: '-0.04em' }}
@@ -51,7 +51,7 @@ export function Process() {
           <motion.div key={step.num}
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: true, amount: 0.1, margin: "0px 0px -60px 0px" }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: i * 0.1 }}
             className="relative px-12 py-14"
             style={{ borderRight: i < steps.length - 1 ? '1px solid #1A1A1A' : 'none' }}

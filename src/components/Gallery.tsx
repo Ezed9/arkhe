@@ -77,7 +77,7 @@ function AgentCard({ agent, index, onView }: { agent: SystemData; index: number;
     <motion.article
       initial={{ opacity: 0, y: 48 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.12 }}
+      viewport={{ once: true, amount: 0.1, margin: "0px 0px -60px 0px" }}
       transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1], delay: index * 0.1 }}
       className="group relative bg-black flex flex-col justify-between"
       style={{ padding: '48px', minHeight: '560px', borderRight: index < 2 ? '1px solid #1A1A1A' : 'none' }}
@@ -158,7 +158,7 @@ export function Gallery({ onView }: Props) {
         <motion.h2
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.1, margin: "0px 0px -60px 0px" }}
           transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
           className="font-sans font-black leading-none"
           style={{ fontSize: 'clamp(2.8rem, 6.5vw, 7rem)', letterSpacing: '-0.04em' }}
@@ -168,7 +168,7 @@ export function Gallery({ onView }: Props) {
         <motion.p
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.1, margin: "0px 0px -60px 0px" }}
           transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
           className="font-mono mt-6 max-w-xl"
           style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.4)', lineHeight: 1.9, letterSpacing: '0.04em' }}
