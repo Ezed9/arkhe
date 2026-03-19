@@ -46,6 +46,7 @@ export function Navigation({ onContact }: Props) {
           { label: 'Services', id: 'services' },
           { label: 'How It Works', id: 'process' },
           { label: 'Demo', id: 'demo' },
+          { label: 'On-Premise', id: 'onpremise' },
           { label: 'Contact', id: 'contact' },
         ].map(({ label, id }) => (
           <button key={id} onClick={() => scrollTo(id)}

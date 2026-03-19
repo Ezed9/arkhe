@@ -8,7 +8,11 @@ const items = [
   'Research & Analysis',
   'Sales Outreach',
   'Operations Automation',
-  'Free Discovery Call',
+  'On-Premise AI Setup',
+  'Data Stays Local',
+  'No Monthly AI Fees',
+  'Founding Slots Open',
+  'Remote or In-Person',
   'Deployed in 2 Weeks',
   'ARKHE · Est. MMXXVI',
 ]

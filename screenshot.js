@@ -2,8 +2,7 @@
 // Run: node screenshot.js
 // Output: render.png (1440x900 @2x retina)
 
-const puppeteer = require('puppeteer');
-const path = require('path');
+import puppeteer from 'puppeteer';
 
 (async () => {
   const browser = await puppeteer.launch({
@@ -16,21 +15,23 @@ const path = require('path');
   // 1440×900 @2x = 2880×1800 actual pixels — honest retina critique
   await page.setViewport({ width: 1440, height: 900, deviceScaleFactor: 2 });
 
-  const filePath = path.resolve(__dirname, 'index.html');
-  await page.goto(`file://${filePath}`, { waitUntil: 'networkidle0' });
+  await page.goto('http://localhost:5999', { waitUntil: 'networkidle0' });
 
-  // Wait for Google Fonts + hero animation
-  await new Promise(r => setTimeout(r, 2200));
+  // Wait for fonts + hero particle animation
+  await new Promise(r => setTimeout(r, 2500));
 
-  // Force-trigger ALL scroll animations (IntersectionObserver unreliable in headless)
-  await page.evaluate(() => {
-    document.querySelectorAll('[data-anim]').forEach(el => {
-      el.classList.add('is-visible');
-    });
-  });
+  // Scroll through entire page in steps to trigger all whileInView animations
+  const pageHeight = await page.evaluate(() => document.body.scrollHeight);
+  const step = 600;
+  for (let y = 0; y < pageHeight; y += step) {
+    await page.evaluate(pos => window.scrollTo(0, pos), y);
+    await new Promise(r => setTimeout(r, 120));
+  }
+  // Scroll back to top
+  await page.evaluate(() => window.scrollTo(0, 0));
 
-  // Wait for all animations to fully complete (longest is 1s for reveal-scale)
-  await new Promise(r => setTimeout(r, 1200));
+  // Wait for all animations to settle
+  await new Promise(r => setTimeout(r, 1500));
 
   await page.screenshot({ path: 'render.png', fullPage: true });
   console.log('✓ render.png saved — open for AQA critique.');

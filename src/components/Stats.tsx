@@ -3,10 +3,10 @@ import { motion } from 'framer-motion'
 
 // Honest capability metrics — true from day one
 const stats = [
-  { value: '2 Wks',  label: 'From Call to Deploy',  sub: 'Guaranteed delivery timeline' },
-  { value: '24/7',   label: 'Agent Uptime',          sub: 'We handle all monitoring'     },
-  { value: 'Free',   label: 'Discovery Call',        sub: 'No commitment. No pitch.'     },
-  { value: '3',      label: 'Core Agent Types',      sub: 'Research · Sales · Operations'},
+  { value: '40hrs', label: 'Saved Per Week',      sub: 'Per Sales Agent deployment'    },
+  { value: '24/7',  label: 'Agent Uptime',         sub: 'We handle all monitoring'     },
+  { value: '2 Wks', label: 'From Call to Deploy',  sub: 'Guaranteed delivery timeline' },
+  { value: '$4.20', label: 'ROI Per $1 Spent',     sub: 'Industry benchmark, AI agents'},
 ]
 
 export function Stats() {

@@ -14,7 +14,7 @@ const steps = [
     title: 'Build',
     heading: 'We build it. You approve it.',
     body: 'We design, build, and test a custom agent for your exact workflow in two weeks. You review every step, give feedback, and we refine it until it works exactly how you need it to — before anything goes live.',
-    tag: '2-Week Delivery',
+    tag: '2-Week Delivery · Zero Risk',
   },
   {
     num: '03',
@@ -32,7 +32,7 @@ export function Process() {
         <p className="font-mono uppercase mb-5 flex items-center gap-3"
           style={{ fontSize: '0.62rem', letterSpacing: '0.14em', color: 'rgba(255,255,255,0.28)' }}>
           <span style={{ width: 22, height: 1, background: 'rgba(255,255,255,0.18)', display: 'inline-block' }} />
-          003 &nbsp;/&nbsp; How It Works
+          004 &nbsp;/&nbsp; How It Works
         </p>
         <motion.h2
           initial={{ opacity: 0, y: 40 }}

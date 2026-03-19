@@ -2,14 +2,15 @@ import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { submitContact } from '../lib/email'
 
-const fields = [
-  { name: 'name',     label: '> Your Name',       type: 'text',     placeholder: 'Full name',                                                                    delay: 0    },
-  { name: 'company',  label: '> Company',          type: 'text',     placeholder: 'Company or project name',                                                       delay: 0.07 },
-  { name: 'email',    label: '> Email Address',    type: 'email',    placeholder: 'you@company.com',                                                               delay: 0.14 },
-  { name: 'automate', label: '> What to Automate', type: 'textarea', placeholder: 'Describe the task or workflow you want to automate. More detail = better fit.', delay: 0.21 },
+const enquiryTypes = ['Research Agent', 'Sales Agent', 'Operations Agent', 'On-Premise AI']
+
+const baseFields = [
+  { name: 'name',    label: '> Your Name',      type: 'text',  placeholder: 'Full name',               delay: 0    },
+  { name: 'company', label: '> Company',         type: 'text',  placeholder: 'Company or project name',  delay: 0.07 },
+  { name: 'email',   label: '> Email Address',   type: 'email', placeholder: 'you@company.com',          delay: 0.14 },
 ]
 
-function TerminalField({ field }: { field: typeof fields[0] }) {
+function TerminalField({ field }: { field: typeof baseFields[0] }) {
   const [focused, setFocused] = useState(false)
   const inputId = `field-${field.name}`
   const base: React.CSSProperties = {
@@ -22,7 +23,7 @@ function TerminalField({ field }: { field: typeof fields[0] }) {
     <motion.div
       initial={{ opacity: 0, x: -20 }}
       whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true, amount: 0.1, margin: "0px 0px -60px 0px" }}
+      viewport={{ once: true, amount: 0.1, margin: '0px 0px -60px 0px' }}
       transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1], delay: field.delay }}
       className="flex items-start gap-5 border-b py-6"
       style={{ borderColor: focused ? 'rgba(255,255,255,0.1)' : '#1A1A1A', transition: 'border-color 0.2s ease' }}
@@ -37,19 +38,47 @@ function TerminalField({ field }: { field: typeof fields[0] }) {
       >
         {field.label}
       </label>
-      {field.type === 'textarea' ? (
-        <textarea
-          id={inputId} name={field.name} rows={4} placeholder={field.placeholder}
-          onFocus={() => setFocused(true)} onBlur={() => setFocused(false)}
-          style={{ ...base, resize: 'none', lineHeight: 1.7 }}
-        />
-      ) : (
-        <input
-          id={inputId} type={field.type} name={field.name} placeholder={field.placeholder}
-          onFocus={() => setFocused(true)} onBlur={() => setFocused(false)}
-          style={base}
-        />
-      )}
+      <input
+        id={inputId} type={field.type} name={field.name} placeholder={field.placeholder}
+        onFocus={() => setFocused(true)} onBlur={() => setFocused(false)}
+        style={base}
+      />
+    </motion.div>
+  )
+}
+
+function TextareaField({ placeholder }: { placeholder: string }) {
+  const [focused, setFocused] = useState(false)
+  const base: React.CSSProperties = {
+    background: 'transparent', border: 'none', outline: 'none',
+    color: '#fff', fontSize: '0.875rem', width: '100%',
+    fontFamily: '"JetBrains Mono", monospace',
+    caretColor: 'rgba(255,255,255,0.6)',
+    resize: 'none', lineHeight: 1.7,
+  }
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: -20 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true, amount: 0.1, margin: '0px 0px -60px 0px' }}
+      transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1], delay: 0.21 }}
+      className="flex items-start gap-5 border-b py-6"
+      style={{ borderColor: focused ? 'rgba(255,255,255,0.1)' : '#1A1A1A', transition: 'border-color 0.2s ease' }}
+    >
+      <label
+        className="font-mono text-sm shrink-0 pt-0.5 select-none"
+        style={{
+          color: focused ? 'rgba(0,255,133,1)' : 'rgba(255,255,255,0.32)',
+          transition: 'color 0.2s ease', letterSpacing: '0.04em', minWidth: 180,
+        }}
+      >
+        &gt; What to Automate
+      </label>
+      <textarea
+        name="automate" rows={4} placeholder={placeholder}
+        onFocus={() => setFocused(true)} onBlur={() => setFocused(false)}
+        style={base}
+      />
     </motion.div>
   )
 }
@@ -59,6 +88,11 @@ interface Props { contactRef?: React.RefObject<HTMLElement> }
 export function Contact({ contactRef }: Props) {
   const [status, setStatus] = useState<'idle' | 'sending' | 'done' | 'error'>('idle')
   const [validationError, setValidationError] = useState('')
+  const [enquiryType, setEnquiryType] = useState('Research Agent')
+
+  const textareaPlaceholder = enquiryType === 'On-Premise AI'
+    ? 'Tell us your team size, industry, and which tasks you\'d like to automate first.'
+    : 'Describe the task or workflow you want to automate. More detail = better fit.'
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -76,7 +110,7 @@ export function Contact({ contactRef }: Props) {
 
     setStatus('sending')
     try {
-      await submitContact({ name, company, email, automate })
+      await submitContact({ name, company, email, automate, type: enquiryType })
       setStatus('done')
     } catch {
       setStatus('error')
@@ -93,12 +127,12 @@ export function Contact({ contactRef }: Props) {
       <p className="font-mono uppercase mb-5 flex items-center gap-3"
         style={{ fontSize: '0.62rem', letterSpacing: '0.14em', color: 'rgba(255,255,255,0.28)' }}>
         <span style={{ width: 22, height: 1, background: 'rgba(255,255,255,0.18)', display: 'inline-block' }} />
-        005 &nbsp;/&nbsp; Get Started
+        007 &nbsp;/&nbsp; Get Started
       </p>
 
       <motion.h2
         initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.1, margin: "0px 0px -60px 0px" }}
+        viewport={{ once: true, amount: 0.1, margin: '0px 0px -60px 0px' }}
         transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
         className="font-sans font-black leading-none mb-5"
         style={{ fontSize: 'clamp(2.8rem, 7vw, 8rem)', letterSpacing: '-0.04em' }}
@@ -108,13 +142,47 @@ export function Contact({ contactRef }: Props) {
 
       <motion.p
         initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.1, margin: "0px 0px -60px 0px" }}
+        viewport={{ once: true, amount: 0.1, margin: '0px 0px -60px 0px' }}
         transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-        className="font-mono mb-20 max-w-lg"
+        className="font-mono mb-10 max-w-lg"
         style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.38)', lineHeight: 1.9, letterSpacing: '0.04em' }}
       >
         Describe what's eating your team's time. We'll reply within 24 hours with a clear plan and a price — no fluff, no obligation.
       </motion.p>
+
+      {/* Enquiry Type Selector */}
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.1 }}
+        transition={{ duration: 0.6, delay: 0.15 }}
+        className="mb-12"
+      >
+        <p className="font-mono text-xs mb-4" style={{ color: 'rgba(255,255,255,0.32)', letterSpacing: '0.08em' }}>
+          &gt; Enquiry Type
+        </p>
+        <div className="flex flex-wrap gap-3">
+          {enquiryTypes.map(type => (
+            <button
+              key={type}
+              type="button"
+              onClick={() => setEnquiryType(type)}
+              className="font-mono uppercase text-xs px-4 py-2"
+              style={{
+                letterSpacing: '0.1em',
+                border: '1px solid',
+                borderColor: enquiryType === type ? '#fff' : '#2A2A2A',
+                background: enquiryType === type ? '#fff' : 'transparent',
+                color: enquiryType === type ? '#000' : 'rgba(255,255,255,0.38)',
+                cursor: 'pointer',
+                transition: 'all 0.2s ease',
+              }}
+            >
+              {type}
+            </button>
+          ))}
+        </div>
+      </motion.div>
 
       {status === 'done' ? (
         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
@@ -133,7 +201,8 @@ export function Contact({ contactRef }: Props) {
         </motion.div>
       ) : (
         <form onSubmit={handleSubmit} className="max-w-3xl" noValidate>
-          {fields.map(f => <TerminalField key={f.name} field={f} />)}
+          {baseFields.map(f => <TerminalField key={f.name} field={f} />)}
+          <TextareaField placeholder={textareaPlaceholder} />
 
           {validationError && (
             <p role="alert" className="font-mono text-xs mt-4"
@@ -151,7 +220,7 @@ export function Contact({ contactRef }: Props) {
 
           <motion.div
             initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.1, margin: "0px 0px -60px 0px" }}
+            viewport={{ once: true, amount: 0.1, margin: '0px 0px -60px 0px' }}
             transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
             className="pt-12 flex items-center gap-6"
           >

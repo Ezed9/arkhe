@@ -4,6 +4,7 @@ const navLinks = [
   { label: 'Services', id: 'services' },
   { label: 'How It Works', id: 'process' },
   { label: 'Demo', id: 'demo' },
+  { label: 'On-Premise AI', id: 'onpremise' },
   { label: 'Contact', id: 'contact' },
 ]
 
@@ -57,7 +58,7 @@ export function Footer() {
             ● All Agents Operational
           </p>
           <p className="font-mono text-xs mb-8" style={{ color: 'rgba(255,255,255,0.22)', letterSpacing: '0.08em' }}>
-            Accepting 3 new clients · Q2 MMXXVI
+            3 Founding Slots Open · Claim Yours
           </p>
 
           <button onClick={() => scrollTo('contact')}

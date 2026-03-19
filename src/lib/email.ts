@@ -9,6 +9,7 @@ export interface ContactSubmission {
   company: string
   email: string
   automate: string
+  type?: string
 }
 
 export async function submitContact(data: ContactSubmission) {
@@ -21,7 +22,8 @@ export async function submitContact(data: ContactSubmission) {
       company:  data.company,
       email:    data.email,
       automate: data.automate,
-      title:    `New inquiry from ${data.name}`,
+      type:     data.type ?? 'General',
+      title:    `New inquiry from ${data.name} — ${data.type ?? 'General'}`,
     },
     PUBLIC_KEY,
   )

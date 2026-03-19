@@ -4,9 +4,11 @@ import { ArkheHero } from './components/ArkheHero'
 import { BottomSection } from './components/BottomSection'
 import { Marquee } from './components/Marquee'
 import { Stats } from './components/Stats'
+import { SocialProof } from './components/SocialProof'
 import { Gallery } from './components/Gallery'
 import { Process } from './components/Process'
 import { Lab } from './components/Lab'
+import { ClawdBot } from './components/ClawdBot'
 import { Contact } from './components/Contact'
 import { Footer } from './components/Footer'
 import { ScrollProgress } from './components/ScrollProgress'
@@ -33,9 +35,11 @@ export function App() {
         <BottomSection />
         <Marquee />
         <Stats />
+        <SocialProof />
         <Gallery onView={setActiveSystem} />
         <Process />
         <Lab />
+        <ClawdBot />
         <Contact contactRef={contactRef} />
         <Footer />
       </main>

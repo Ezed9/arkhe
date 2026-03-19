@@ -7,6 +7,7 @@ const agents: SystemData[] = [
     id: 'AGENT_01',
     title: 'Research &\nAnalysis Agent',
     tagline: 'Turn hours of research into minutes',
+    roi: '> Saves ~12 hrs/week per analyst. ~$18,000/yr.',
     description:
       'This agent scans thousands of sources — news, competitor sites, academic papers, social media — and delivers a clean, structured report. You give it a question or topic; it comes back with ranked insights, source links, and a summary you can act on immediately. No more hours lost to manual research.',
     capabilities: [
@@ -28,6 +29,7 @@ const agents: SystemData[] = [
     id: 'AGENT_02',
     title: 'Sales &\nOutreach Agent',
     tagline: 'Books meetings while you sleep',
+    roi: '> Equivalent to a $60,000/yr SDR. 500+ leads/day.',
     description:
       'This agent finds leads that match your ideal customer, writes personalised outreach for each one, sends emails and follow-ups on schedule, and hands off warm conversations to your team. It does the repetitive work of a full sales team — 24 hours a day, 7 days a week — at a fraction of the cost.',
     capabilities: [
@@ -49,6 +51,7 @@ const agents: SystemData[] = [
     id: 'AGENT_03',
     title: 'Operations &\nWorkflow Agent',
     tagline: 'Automate your entire back-office',
+    roi: '> Eliminates 200+ manual tasks/week. <0.1% error rate.',
     description:
       'This agent handles the repetitive tasks that slow your team down — routing support tickets, processing invoices, scheduling meetings, updating project boards, sending status reports. You define the rules once; the agent runs the process forever, without errors or delays.',
     capabilities: [
@@ -102,9 +105,14 @@ function AgentCard({ agent, index, onView }: { agent: SystemData; index: number;
           {agent.title}
         </h3>
 
-        <p className="font-mono text-xs mb-8"
+        <p className="font-mono text-xs mb-3"
           style={{ letterSpacing: '0.08em', color: 'rgba(255,255,255,0.4)' }}>
           {agent.tagline}
+        </p>
+
+        <p className="font-mono text-xs mb-8"
+          style={{ color: 'rgba(0,255,133,0.55)', letterSpacing: '0.07em' }}>
+          {agent.roi}
         </p>
 
         <ul style={{ listStyle: 'none', padding: 0 }}>
@@ -153,7 +161,7 @@ export function Gallery({ onView }: Props) {
         <p className="font-mono uppercase mb-5 flex items-center gap-3"
           style={{ fontSize: '0.62rem', letterSpacing: '0.14em', color: 'rgba(255,255,255,0.28)' }}>
           <span style={{ width: 22, height: 1, background: 'rgba(255,255,255,0.18)', display: 'inline-block' }} />
-          002 &nbsp;/&nbsp; What We Build
+          003 &nbsp;/&nbsp; What We Build
         </p>
         <motion.h2
           initial={{ opacity: 0, y: 40 }}

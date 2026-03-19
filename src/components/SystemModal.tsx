@@ -5,6 +5,7 @@ export interface SystemData {
   id: string
   title: string
   tagline: string
+  roi?: string
   description: string
   capabilities: string[]
   specs: { label: string; value: string }[]
@@ -132,6 +133,20 @@ export function SystemModal({ system, onClose, onContact }: Props) {
                 ))}
               </div>
 
+              {/* ROI callout */}
+              {system.roi && (
+                <div className="mb-10 px-6 py-5 border-l-2"
+                  style={{ borderColor: 'rgba(0,255,133,0.4)', background: 'rgba(0,255,133,0.03)' }}>
+                  <p className="font-mono text-xs uppercase mb-2"
+                    style={{ letterSpacing: '0.12em', color: 'rgba(0,255,133,0.5)' }}>
+                    Estimated Savings
+                  </p>
+                  <p className="font-mono text-sm" style={{ color: 'rgba(255,255,255,0.7)', letterSpacing: '0.05em' }}>
+                    {system.roi}
+                  </p>
+                </div>
+              )}
+
               {/* CTA */}
               <div className="flex gap-4 flex-wrap">
                 <button
@@ -145,7 +160,7 @@ export function SystemModal({ system, onClose, onContact }: Props) {
                   onMouseEnter={e => { e.currentTarget.style.transform = 'scale(0.97)' }}
                   onMouseLeave={e => { e.currentTarget.style.transform = 'scale(1)' }}
                 >
-                  Request Access →
+                  Build This For My Team →
                 </button>
                 <button
                   onClick={onClose}

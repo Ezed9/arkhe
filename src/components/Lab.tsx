@@ -53,6 +53,31 @@ const runs = [
       { text: 'arkhe@agent:~$ _', delay: 7200, cursor: true },
     ],
   },
+  {
+    label: 'Operations Agent',
+    color: '#00FF85',
+    lines: [
+      { text: 'arkhe@agent:~$ run ops-agent --mode=backoffice', delay: 0 },
+      { text: '> Initialising Operations Agent v1.8...', delay: 600 },
+      { text: '> Connecting to support queue — 247 open tickets', delay: 1100 },
+      { text: '> Scanning invoice inbox — 38 unprocessed documents', delay: 1700 },
+      { text: '> Running classification and routing rules...', delay: 2400 },
+      { text: '> Executing automated workflows...', delay: 3100 },
+      { text: '', delay: 3700 },
+      { text: '  OPERATIONS SUMMARY ───────────────────────────', delay: 3800, highlight: true },
+      { text: '  ■ Tickets auto-resolved        189 of 247', delay: 4000 },
+      { text: '  ■ Invoices processed           38 of 38', delay: 4300 },
+      { text: '  ■ Meetings scheduled           14', delay: 4600 },
+      { text: '  ■ Error rate                   0.0%', delay: 4900 },
+      { text: '  ────────────────────────────────────────────', delay: 5100, highlight: true },
+      { text: '', delay: 5200 },
+      { text: '> Project boards updated ✓', delay: 5400 },
+      { text: '> Weekly status report generated and sent ✓', delay: 6000 },
+      { text: '> Time saved this week: 41.5 hours', delay: 6600 },
+      { text: '', delay: 7000 },
+      { text: 'arkhe@agent:~$ _', delay: 7200, cursor: true },
+    ],
+  },
 ]
 
 function TerminalLine({ text, highlight, cursor }: { text: string; highlight?: boolean; cursor?: boolean }) {
@@ -107,7 +132,7 @@ export function Lab() {
       <p className="font-mono uppercase mb-5 flex items-center gap-3"
         style={{ fontSize: '0.62rem', letterSpacing: '0.14em', color: 'rgba(255,255,255,0.28)' }}>
         <span style={{ width: 22, height: 1, background: 'rgba(255,255,255,0.18)', display: 'inline-block' }} />
-        004 &nbsp;/&nbsp; See It Work
+        005 &nbsp;/&nbsp; See It Work
       </p>
 
       <motion.h2
