@@ -8,7 +8,7 @@ import { SocialProof } from './components/SocialProof'
 import { Gallery } from './components/Gallery'
 import { Process } from './components/Process'
 import { Lab } from './components/Lab'
-import { ClawdBot } from './components/ClawdBot'
+
 import { Contact } from './components/Contact'
 import { Footer } from './components/Footer'
 import { ScrollProgress } from './components/ScrollProgress'
@@ -39,7 +39,7 @@ export function App() {
         <Gallery onView={setActiveSystem} />
         <Process />
         <Lab />
-        <ClawdBot />
+
         <Contact contactRef={contactRef} />
         <Footer />
       </main>

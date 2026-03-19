@@ -4,7 +4,7 @@ const navLinks = [
   { label: 'Services', id: 'services' },
   { label: 'How It Works', id: 'process' },
   { label: 'Demo', id: 'demo' },
-  { label: 'On-Premise AI', id: 'onpremise' },
+
   { label: 'Contact', id: 'contact' },
 ]
 
@@ -37,7 +37,7 @@ export function Footer() {
             <button key={link.id} onClick={() => scrollTo(link.id)}
               className="block font-mono text-xs mb-4"
               style={{
-                letterSpacing: '0.1em', color: 'rgba(255,255,255,0.42)',
+                letterSpacing: '0.1em', color: 'rgba(255,255,255,0.48)',
                 background: 'none', border: 'none', cursor: 'pointer',
                 transition: 'color 0.2s ease', textAlign: 'left', padding: 0,
               }}
@@ -77,10 +77,10 @@ export function Footer() {
 
       {/* Bottom bar */}
       <div className="px-8 md:px-16 py-5 flex flex-col md:flex-row justify-between items-center gap-3">
-        <span className="font-mono text-xs" style={{ letterSpacing: '0.1em', color: 'rgba(255,255,255,0.16)' }}>
+        <span className="font-mono text-xs" style={{ letterSpacing: '0.1em', color: 'rgba(255,255,255,0.32)' }}>
           © MMXXVI ARKHE. All rights reserved.
         </span>
-        <span className="font-mono text-xs" style={{ letterSpacing: '0.1em', color: 'rgba(255,255,255,0.16)' }}>
+        <span className="font-mono text-xs" style={{ letterSpacing: '0.1em', color: 'rgba(255,255,255,0.32)' }}>
           Privacy Policy &nbsp;·&nbsp; Terms of Service
         </span>
       </div>

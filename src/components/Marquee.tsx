@@ -8,9 +8,7 @@ const items = [
   'Research & Analysis',
   'Sales Outreach',
   'Operations Automation',
-  'On-Premise AI Setup',
-  'Data Stays Local',
-  'No Monthly AI Fees',
+
   'Founding Slots Open',
   'Remote or In-Person',
   'Deployed in 2 Weeks',
@@ -29,7 +27,7 @@ export function Marquee() {
       >
         {track.map((item, i) => (
           <span key={i} className="font-mono uppercase flex-shrink-0 flex items-center gap-14"
-            style={{ fontSize: '0.62rem', letterSpacing: '0.14em', color: 'rgba(255,255,255,0.2)' }}>
+            style={{ fontSize: '0.62rem', letterSpacing: '0.14em', color: 'rgba(255,255,255,0.28)' }}>
             {item}
             <span style={{ color: 'rgba(255,255,255,0.08)' }}>·</span>
           </span>

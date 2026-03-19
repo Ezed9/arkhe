@@ -6,12 +6,12 @@ const stats = [
   { value: '40hrs', label: 'Saved Per Week',      sub: 'Per Sales Agent deployment'    },
   { value: '24/7',  label: 'Agent Uptime',         sub: 'We handle all monitoring'     },
   { value: '2 Wks', label: 'From Call to Deploy',  sub: 'Guaranteed delivery timeline' },
-  { value: '$4.20', label: 'ROI Per $1 Spent',     sub: 'Industry benchmark, AI agents'},
+  { value: '3×',    label: 'Faster Than Manual',    sub: 'Industry benchmark, AI agents'},
 ]
 
 export function Stats() {
   return (
-    <section className="border-t" style={{ borderColor: '#1A1A1A' }}>
+    <section className="border-t" style={{ borderColor: '#1A1A1A', background: '#0A0A0A' }}>
       <div className="grid grid-cols-2 md:grid-cols-4">
         {stats.map((s, i) => (
           <motion.div key={i}
@@ -30,7 +30,7 @@ export function Stats() {
               style={{ letterSpacing: '0.12em', color: 'rgba(255,255,255,0.5)' }}>
               {s.label}
             </p>
-            <p className="font-mono text-xs" style={{ letterSpacing: '0.06em', color: 'rgba(255,255,255,0.22)' }}>
+            <p className="font-mono text-xs" style={{ letterSpacing: '0.06em', color: 'rgba(255,255,255,0.42)' }}>
               {s.sub}
             </p>
           </motion.div>

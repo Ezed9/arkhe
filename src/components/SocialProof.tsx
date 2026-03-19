@@ -36,7 +36,7 @@ export function SocialProof() {
           viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.6 }}
           className="font-mono uppercase flex items-center gap-3"
-          style={{ fontSize: '0.58rem', letterSpacing: '0.18em', color: 'rgba(255,255,255,0.2)' }}
+          style={{ fontSize: '0.58rem', letterSpacing: '0.18em', color: 'rgba(255,255,255,0.30)' }}
         >
           <span style={{ width: 22, height: 1, background: 'rgba(255,255,255,0.14)', display: 'inline-block' }} />
           [ INDUSTRY BENCHMARKS · VERIFIED DATA ]
@@ -68,13 +68,13 @@ export function SocialProof() {
             </p>
             <p
               className="font-mono text-xs mb-3"
-              style={{ letterSpacing: '0.06em', color: 'rgba(255,255,255,0.22)' }}
+              style={{ letterSpacing: '0.06em', color: 'rgba(255,255,255,0.30)' }}
             >
               {b.sub}
             </p>
             <p
               className="font-mono"
-              style={{ fontSize: '0.5rem', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.14)' }}
+              style={{ fontSize: '0.5rem', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.28)' }}
             >
               {b.source}
             </p>
@@ -135,8 +135,8 @@ export function SocialProof() {
                 maxWidth: 480,
               }}
             >
-              We're accepting 3 founding clients this quarter. You get the full build at our
-              lowest rate ever. We publish the results as a public case study.
+              We're accepting 3 founding clients this quarter. You get priority access and a
+              dedicated build. We publish the results as a public case study.
             </p>
 
             <p
@@ -150,25 +150,21 @@ export function SocialProof() {
           <div className="shrink-0">
             <button
               onClick={() => scrollTo('contact')}
-              className="font-mono uppercase text-xs px-8 py-4"
+              className="font-mono font-bold uppercase text-xs px-8 py-4"
               style={{
-                border: '1px solid #333',
-                background: 'transparent',
-                color: '#fff',
+                border: 'none',
+                background: '#fff',
+                color: '#000',
                 letterSpacing: '0.14em',
                 cursor: 'pointer',
                 transition: 'all 0.2s ease',
                 whiteSpace: 'nowrap',
               }}
               onMouseEnter={e => {
-                e.currentTarget.style.background = '#fff'
-                e.currentTarget.style.color = '#000'
-                e.currentTarget.style.borderColor = '#fff'
+                e.currentTarget.style.transform = 'scale(0.97)'
               }}
               onMouseLeave={e => {
-                e.currentTarget.style.background = 'transparent'
-                e.currentTarget.style.color = '#fff'
-                e.currentTarget.style.borderColor = '#333'
+                e.currentTarget.style.transform = 'scale(1)'
               }}
             >
               Claim a Slot →

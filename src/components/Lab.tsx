@@ -152,7 +152,7 @@ export function Lab() {
         viewport={{ once: true, amount: 0.1, margin: "0px 0px -60px 0px" }}
         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
         className="font-mono mb-16 max-w-lg"
-        style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.38)', lineHeight: 1.9, letterSpacing: '0.04em' }}
+        style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.45)', lineHeight: 1.9, letterSpacing: '0.04em' }}
       >
         This is a live simulation of how our agents work. Each one takes a task, executes it step-by-step, and delivers a result — in under a minute.
       </motion.p>
@@ -162,14 +162,18 @@ export function Lab() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.1, margin: "0px 0px -60px 0px" }}
         transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-        style={{ border: '1px solid #1A1A1A', background: '#080808' }}
+        style={{
+          border: '1px solid #1A1A1A',
+          background: '#080808',
+          boxShadow: '0 0 80px rgba(0,255,133,0.03), 0 4px 60px rgba(0,0,0,0.5)',
+        }}
       >
         {/* Terminal top bar */}
         <div className="flex items-center justify-between px-5 py-3 border-b" style={{ borderColor: '#1A1A1A' }}>
           <div className="flex items-center gap-2">
-            <span style={{ width: 10, height: 10, borderRadius: '50%', background: '#333', display: 'inline-block' }} />
-            <span style={{ width: 10, height: 10, borderRadius: '50%', background: '#333', display: 'inline-block' }} />
-            <span style={{ width: 10, height: 10, borderRadius: '50%', background: '#333', display: 'inline-block' }} />
+            <span style={{ width: 10, height: 10, borderRadius: '50%', background: 'rgba(255,95,87,0.35)', display: 'inline-block' }} />
+            <span style={{ width: 10, height: 10, borderRadius: '50%', background: 'rgba(255,189,46,0.35)', display: 'inline-block' }} />
+            <span style={{ width: 10, height: 10, borderRadius: '50%', background: 'rgba(39,201,63,0.35)', display: 'inline-block' }} />
           </div>
           <span className="font-mono uppercase text-xs"
             style={{ letterSpacing: '0.14em', color: 'rgba(255,255,255,0.25)' }}>

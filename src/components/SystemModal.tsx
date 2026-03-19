@@ -139,7 +139,7 @@ export function SystemModal({ system, onClose, onContact }: Props) {
                   style={{ borderColor: 'rgba(0,255,133,0.4)', background: 'rgba(0,255,133,0.03)' }}>
                   <p className="font-mono text-xs uppercase mb-2"
                     style={{ letterSpacing: '0.12em', color: 'rgba(0,255,133,0.5)' }}>
-                    Estimated Savings
+                    Estimated Time Saved
                   </p>
                   <p className="font-mono text-sm" style={{ color: 'rgba(255,255,255,0.7)', letterSpacing: '0.05em' }}>
                     {system.roi}

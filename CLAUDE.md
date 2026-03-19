@@ -16,7 +16,7 @@ node screenshot.js # AQA screenshot (requires `npx serve dist -p 5999` running f
 Single-page React 18 + TypeScript site built with Vite. No router — all sections render vertically in `App.tsx` as a scroll-based experience.
 
 **Section render order in App.tsx:**
-Hero → BottomSection → Marquee → Stats → SocialProof → Gallery → Process → Lab → ClawdBot → Contact → Footer
+Hero → BottomSection → Marquee → Stats → SocialProof → Gallery → Process → Lab → Contact → Footer
 
 **Key architectural patterns:**
 - `Gallery.tsx` defines agent data (research/sales/operations) and passes selected agent to `SystemModal.tsx` via `App.tsx` state (`activeSystem`/`setActiveSystem`)

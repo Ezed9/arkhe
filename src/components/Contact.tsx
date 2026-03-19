@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { submitContact } from '../lib/email'
 
-const enquiryTypes = ['Research Agent', 'Sales Agent', 'Operations Agent', 'On-Premise AI']
+const enquiryTypes = ['Research Agent', 'Sales Agent', 'Operations Agent', 'Custom Agent']
 
 const baseFields = [
   { name: 'name',    label: '> Your Name',      type: 'text',  placeholder: 'Full name',               delay: 0    },
@@ -90,7 +90,7 @@ export function Contact({ contactRef }: Props) {
   const [validationError, setValidationError] = useState('')
   const [enquiryType, setEnquiryType] = useState('Research Agent')
 
-  const textareaPlaceholder = enquiryType === 'On-Premise AI'
+  const textareaPlaceholder = enquiryType === 'Custom Agent'
     ? 'Tell us your team size, industry, and which tasks you\'d like to automate first.'
     : 'Describe the task or workflow you want to automate. More detail = better fit.'
 
@@ -127,7 +127,7 @@ export function Contact({ contactRef }: Props) {
       <p className="font-mono uppercase mb-5 flex items-center gap-3"
         style={{ fontSize: '0.62rem', letterSpacing: '0.14em', color: 'rgba(255,255,255,0.28)' }}>
         <span style={{ width: 22, height: 1, background: 'rgba(255,255,255,0.18)', display: 'inline-block' }} />
-        007 &nbsp;/&nbsp; Get Started
+        006 &nbsp;/&nbsp; Get Started
       </p>
 
       <motion.h2
@@ -145,9 +145,9 @@ export function Contact({ contactRef }: Props) {
         viewport={{ once: true, amount: 0.1, margin: '0px 0px -60px 0px' }}
         transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
         className="font-mono mb-10 max-w-lg"
-        style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.38)', lineHeight: 1.9, letterSpacing: '0.04em' }}
+        style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.45)', lineHeight: 1.9, letterSpacing: '0.04em' }}
       >
-        Describe what's eating your team's time. We'll reply within 24 hours with a clear plan and a price — no fluff, no obligation.
+        Describe what's eating your team's time. We'll reply within 24 hours with a clear plan — no fluff, no obligation.
       </motion.p>
 
       {/* Enquiry Type Selector */}
@@ -227,33 +227,29 @@ export function Contact({ contactRef }: Props) {
             <button
               type="submit"
               disabled={status === 'sending'}
-              className="font-mono uppercase text-xs px-10 py-5"
+              className="font-mono font-bold uppercase text-xs px-10 py-5"
               style={{
                 letterSpacing: '0.14em',
                 cursor: status === 'sending' ? 'wait' : 'pointer',
-                border: '1px solid rgba(255,255,255,0.18)',
-                color: '#fff',
-                background: 'transparent',
+                border: 'none',
+                color: '#000',
+                background: '#fff',
                 transition: 'all 0.25s ease',
               }}
               onMouseEnter={e => {
                 if (status === 'idle') {
-                  e.currentTarget.style.background = '#fff'
-                  e.currentTarget.style.color = '#000'
-                  e.currentTarget.style.borderColor = '#fff'
+                  e.currentTarget.style.transform = 'scale(0.97)'
                 }
               }}
               onMouseLeave={e => {
                 if (status === 'idle') {
-                  e.currentTarget.style.background = 'transparent'
-                  e.currentTarget.style.color = '#fff'
-                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.18)'
+                  e.currentTarget.style.transform = 'scale(1)'
                 }
               }}
             >
               {status === 'sending' ? 'Sending...' : 'Request My Build Plan →'}
             </button>
-            <span className="font-mono text-xs" style={{ color: 'rgba(255,255,255,0.2)', letterSpacing: '0.08em' }}>
+            <span className="font-mono text-xs" style={{ color: 'rgba(255,255,255,0.35)', letterSpacing: '0.08em' }}>
               We reply within 24 hours.
             </span>
           </motion.div>

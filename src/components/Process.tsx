@@ -27,7 +27,7 @@ const steps = [
 
 export function Process() {
   return (
-    <section id="process" className="py-36 border-t" style={{ borderColor: '#1A1A1A' }}>
+    <section id="process" className="py-36 border-t" style={{ borderColor: '#1A1A1A', background: '#0A0A0A' }}>
       <div className="px-8 md:px-16 mb-20">
         <p className="font-mono uppercase mb-5 flex items-center gap-3"
           style={{ fontSize: '0.62rem', letterSpacing: '0.14em', color: 'rgba(255,255,255,0.28)' }}>
@@ -72,13 +72,13 @@ export function Process() {
               {step.heading}
             </h3>
 
-            <p style={{ color: 'rgba(255,255,255,0.48)', lineHeight: 1.85, fontSize: '0.9rem' }}>
+            <p style={{ color: 'rgba(255,255,255,0.55)', lineHeight: 1.85, fontSize: '0.9rem' }}>
               {step.body}
             </p>
 
             <div className="mt-10 inline-block">
               <span className="font-mono uppercase text-xs px-3 py-1.5 border"
-                style={{ letterSpacing: '0.12em', borderColor: '#222', color: 'rgba(255,255,255,0.3)' }}>
+                style={{ letterSpacing: '0.12em', borderColor: 'rgba(0,255,133,0.25)', color: 'rgba(0,255,133,0.6)' }}>
                 {step.tag}
               </span>
             </div>

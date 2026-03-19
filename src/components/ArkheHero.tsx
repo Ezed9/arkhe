@@ -10,7 +10,7 @@ export function ArkheHero() {
 
   return (
     // No overflow-hidden — particles need to travel above/below during entrance
-    <div className="relative w-full h-screen flex flex-col items-center justify-center">
+    <div className="relative w-full min-h-[85vh] flex flex-col items-center justify-center">
       {/* Canvas particle system — IS the animation */}
       <ParticleText letterRefs={letterRefs} />
 
