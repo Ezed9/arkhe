@@ -82,10 +82,11 @@ const runs = [
 
 function TerminalLine({ text, highlight, cursor }: { text: string; highlight?: boolean; cursor?: boolean }) {
   return (
-    <div className="font-mono text-xs leading-relaxed flex items-center gap-1"
+    <div className="font-mono leading-relaxed flex items-start gap-1"
       style={{
+        fontSize: 'clamp(9px, 2.2vw, 12px)',
         color: highlight ? 'rgba(0,255,133,0.7)' : 'rgba(255,255,255,0.65)',
-        letterSpacing: '0.05em',
+        letterSpacing: '0.03em',
         whiteSpace: 'pre',
         fontFamily: '"JetBrains Mono", monospace',
       }}>
@@ -170,23 +171,24 @@ export function Lab() {
       >
         {/* Terminal top bar */}
         <div className="flex items-center justify-between px-5 py-3 border-b" style={{ borderColor: '#1A1A1A' }}>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 shrink-0">
             <span style={{ width: 10, height: 10, borderRadius: '50%', background: 'rgba(255,95,87,0.35)', display: 'inline-block' }} />
             <span style={{ width: 10, height: 10, borderRadius: '50%', background: 'rgba(255,189,46,0.35)', display: 'inline-block' }} />
             <span style={{ width: 10, height: 10, borderRadius: '50%', background: 'rgba(39,201,63,0.35)', display: 'inline-block' }} />
           </div>
-          <span className="font-mono uppercase text-xs"
+          <span className="font-mono uppercase text-xs hidden sm:block"
             style={{ letterSpacing: '0.14em', color: 'rgba(255,255,255,0.25)' }}>
             ARKHE Agent Terminal — {run.label}
           </span>
-          <span className="font-mono text-xs" style={{ color: 'rgba(0,255,133,0.6)', letterSpacing: '0.1em' }}>
+          <span className="font-mono text-xs shrink-0" style={{ color: 'rgba(0,255,133,0.6)', letterSpacing: '0.1em' }}>
             ● Running
           </span>
         </div>
 
         {/* Terminal body */}
         <div ref={containerRef}
-          style={{ padding: '28px 32px', height: '340px', overflowY: 'auto', scrollBehavior: 'smooth' }}>
+          className="px-4 py-4 sm:px-8 sm:py-7"
+          style={{ height: '340px', overflowY: 'auto', overflowX: 'auto', scrollBehavior: 'smooth' }}>
           {run.lines.map((line, i) => (
             visibleLines.includes(i) ? (
               <motion.div key={`${runIndex}-${i}`}
@@ -200,7 +202,7 @@ export function Lab() {
         </div>
 
         {/* Agent switcher */}
-        <div className="flex items-center gap-4 px-5 py-3 border-t" style={{ borderColor: '#1A1A1A' }}>
+        <div className="flex flex-wrap items-center gap-2 sm:gap-4 px-4 sm:px-5 py-3 border-t" style={{ borderColor: '#1A1A1A' }}>
           <span className="font-mono uppercase text-xs" style={{ letterSpacing: '0.1em', color: 'rgba(255,255,255,0.22)' }}>
             Switch demo:
           </span>

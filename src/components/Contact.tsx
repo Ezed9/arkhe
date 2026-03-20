@@ -25,7 +25,7 @@ function TerminalField({ field }: { field: typeof baseFields[0] }) {
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true, amount: 0.1, margin: '0px 0px -60px 0px' }}
       transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1], delay: field.delay }}
-      className="flex items-start gap-5 border-b py-6"
+      className="flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-5 border-b py-5"
       style={{ borderColor: focused ? 'rgba(255,255,255,0.1)' : '#1A1A1A', transition: 'border-color 0.2s ease' }}
     >
       <label
@@ -33,7 +33,7 @@ function TerminalField({ field }: { field: typeof baseFields[0] }) {
         className="font-mono text-sm shrink-0 pt-0.5 select-none"
         style={{
           color: focused ? 'rgba(0,255,133,1)' : 'rgba(255,255,255,0.32)',
-          transition: 'color 0.2s ease', letterSpacing: '0.04em', minWidth: 180,
+          transition: 'color 0.2s ease', letterSpacing: '0.04em',
         }}
       >
         {field.label}
@@ -62,14 +62,14 @@ function TextareaField({ placeholder }: { placeholder: string }) {
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true, amount: 0.1, margin: '0px 0px -60px 0px' }}
       transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1], delay: 0.21 }}
-      className="flex items-start gap-5 border-b py-6"
+      className="flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-5 border-b py-5"
       style={{ borderColor: focused ? 'rgba(255,255,255,0.1)' : '#1A1A1A', transition: 'border-color 0.2s ease' }}
     >
       <label
         className="font-mono text-sm shrink-0 pt-0.5 select-none"
         style={{
           color: focused ? 'rgba(0,255,133,1)' : 'rgba(255,255,255,0.32)',
-          transition: 'color 0.2s ease', letterSpacing: '0.04em', minWidth: 180,
+          transition: 'color 0.2s ease', letterSpacing: '0.04em',
         }}
       >
         &gt; What to Automate
@@ -222,7 +222,7 @@ export function Contact({ contactRef }: Props) {
             initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.1, margin: '0px 0px -60px 0px' }}
             transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
-            className="pt-12 flex items-center gap-6"
+            className="pt-12 flex flex-col sm:flex-row sm:items-center gap-4"
           >
             <button
               type="submit"

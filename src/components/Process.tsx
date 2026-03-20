@@ -53,7 +53,7 @@ export function Process() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.1, margin: "0px 0px -60px 0px" }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: i * 0.1 }}
-            className="relative px-12 py-14"
+            className="relative px-8 md:px-12 py-10 md:py-14"
             style={{ borderRight: i < steps.length - 1 ? '1px solid #1A1A1A' : 'none' }}
           >
             {/* Step number — huge background */}

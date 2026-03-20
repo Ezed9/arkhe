@@ -51,7 +51,7 @@ export function SocialProof() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.1, margin: '0px 0px -60px 0px' }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: i * 0.08 }}
-            className="px-8 md:px-12 py-12 border-r border-b md:border-b-0 last:border-r-0"
+            className="px-8 md:px-12 py-12 md:border-r border-b md:border-b-0 last:border-r-0"
             style={{ borderColor: '#1A1A1A' }}
           >
             <p
@@ -88,12 +88,11 @@ export function SocialProof() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.1, margin: '0px 0px -60px 0px' }}
         transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
-        className="mx-8 md:mx-16 mb-16 mt-10"
+        className="mx-8 md:mx-16 mb-16 mt-10 p-6 md:p-12"
         style={{
           background: '#080808',
           border: '1px solid #1A1A1A',
           borderLeft: '3px solid #00FF85',
-          padding: '48px',
         }}
       >
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">

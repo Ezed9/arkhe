@@ -93,10 +93,8 @@ function AgentCard({ agent, index, onView }: { agent: SystemData; index: number;
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.1, margin: "0px 0px -60px 0px" }}
       transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1], delay: index * 0.1 }}
-      className="group relative flex flex-col justify-between"
+      className="group relative flex flex-col justify-between p-6 md:p-12 min-h-auto md:min-h-[560px]"
       style={{
-        padding: '48px',
-        minHeight: '560px',
         background: '#080808',
         border: '1px solid #222',
         transition: 'border-color 0.4s ease, box-shadow 0.4s ease',

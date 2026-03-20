@@ -26,7 +26,7 @@ export function Navigation({ onContact }: Props) {
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50,
         height: 60,
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-        padding: '0 40px',
+        padding: '0 clamp(16px, 4vw, 40px)',
         borderBottom: '1px solid #1A1A1A',
         background: scrolled ? 'rgba(0,0,0,0.96)' : 'rgba(0,0,0,0.88)',
         backdropFilter: 'blur(20px)',

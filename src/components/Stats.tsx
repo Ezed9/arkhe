@@ -19,7 +19,7 @@ export function Stats() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.1, margin: "0px 0px -60px 0px" }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: i * 0.08 }}
-            className="px-8 md:px-12 py-12 border-r border-b md:border-b-0 last:border-r-0"
+            className="px-8 md:px-12 py-12 border-r border-b md:border-b-0 even:border-r-0 md:even:border-r last:border-r-0"
             style={{ borderColor: '#1A1A1A' }}
           >
             <p className="font-sans font-black leading-none mb-2"

@@ -31,8 +31,10 @@ export function App() {
       />
       <main className="relative w-full min-h-screen bg-black text-white overflow-x-hidden bg-noise selection:bg-white selection:text-black">
         <Navigation onContact={scrollToContact} />
-        <ArkheHero />
-        <BottomSection />
+        <div className="relative w-full">
+          <ArkheHero />
+          <BottomSection />
+        </div>
         <Marquee />
         <Stats />
         <SocialProof />
