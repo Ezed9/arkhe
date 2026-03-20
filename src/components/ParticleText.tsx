@@ -158,13 +158,21 @@ export function ParticleText({ letterRefs }: Props) {
       document.addEventListener('mouseleave', onLeave)
     }
 
+    // Track width to ignore iOS address-bar resize (height-only changes)
+    let lastWidth = window.innerWidth
     let resizeTimer: ReturnType<typeof setTimeout>
     const onResize = () => {
       clearTimeout(resizeTimer)
       resizeTimer = setTimeout(() => {
+        const newWidth = window.innerWidth
         ctx.setTransform(1, 0, 0, 1, 0, 0)
         resize()
-        build()
+        // Only rebuild particles if width actually changed —
+        // iOS Safari fires resize on scroll when address bar hides/shows (height-only)
+        if (newWidth !== lastWidth) {
+          lastWidth = newWidth
+          build()
+        }
       }, 150)
     }
     window.addEventListener('resize', onResize)

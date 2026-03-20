@@ -61,7 +61,7 @@ export function ArkheHero() {
 
       {/* Scroll indicator — appears after particles have mostly settled */}
       {/* Outer div handles centering; inner motion.div handles entrance animation */}
-      <div className="absolute bottom-10 left-1/2 select-none" style={{ transform: 'translateX(-50%)', zIndex: 30 }}>
+      <div className="absolute bottom-36 md:bottom-10 left-1/2 select-none" style={{ transform: 'translateX(-50%)', zIndex: 30 }}>
         <motion.button
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
